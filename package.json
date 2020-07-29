@@ -1,0 +1,27 @@
+{
+  "name": "my-team",
+  "version": "1.0.0",
+  "description": "project creates a list of employees",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lafry5/my-team.git"
+  },
+  "author": "Laura Fry",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lafry5/my-team/issues"
+  },
+  "homepage": "https://github.com/lafry5/my-team#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3",
+    "resolve-url": "^0.2.1",
+    "urix": "^0.1.0"
+  },
+  "devDependencies": {
+    "jest": "^26.1.0"
+  }
+}
