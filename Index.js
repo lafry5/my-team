@@ -1,10 +1,12 @@
 const fs = require('fs');
 const inquirer = require("inquirer")
+// let Manager = require("Manager.js")
+// let Intern = require("Intern.js") // Made available the intern class
 answers = [];
 data = [];
 
 
-const generatePage = require('./dist/generateTeam.css');
+const generatePage = require('./src/generateTeam.js'); //says generatePage is not a function 
 
 
 
@@ -20,6 +22,10 @@ function writeToFile(fileName, data) {
         });
 }
 
+//If role = intern then create new Instance
+// let Bob (instance name) = new Intern (input from inquirer(1), id input, email input, etc)
+
+// let Team Members = []; //Put them in an array
 
 
 // function to initialize program
@@ -45,19 +51,20 @@ inquirer
       {
         type: 'checkbox',
         name: 'role',
-        message: 'What role on the project do you play?'
+        message: 'What role on the project do you play?',
         choices: ['Manager', 'Engineer', 'Intern'],
       }, 
       {
         type: 'input',
-        name: 'number',
-        message: 'What is your office number?' // Manager only
+        name: 'officenumber',
+        message: 'What is your office phone number [use (xxx)xxx-xxxx format]?' // Manager only
       },
       {
         type: 'input',
         name: 'school',
         message: 'What is your school?' // Intern only
       }]
+    )
       .then(function(answers){
         //   console.log(answers.title + ' is title')
         writeToFile('Team.html', answers);
