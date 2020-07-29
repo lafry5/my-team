@@ -6,8 +6,8 @@ let Employee = require("./lib/Employee.js")
 answers = [];
 data = [];
 
-// const output_directory = path.resolve(directoryname, "output")
-// const outputPath = path.join(output_directory, "Team.html");
+const output_directory = path.resolve(directoryname, "output")
+const outputPath = path.join(output_directory, "Team.html");
 
 const generatePage = require('./src/generateTeam.js'); //says generatePage is not a function 
 
