@@ -11,8 +11,8 @@ test ("Can set school through constructor arguments", function() {  // Passes
     expect(testvalue.school).toBe(school);
 })
 
-// test ("Can get role via getRole function and result is Intern", function() {    // FAILS
-//     const value = "Intern";
-//     const testvalue = new Employee("Laura", 54424, "lafry5@yahoo.com");
-//     expect(testvalue.getRole()).toBe(value);
-// })
+test ("Can get role via getRole function and result is Intern", function() {    // Passes
+    const value = "Intern";
+    const testvalue = new Intern("Laura", 54424, "lafry5@yahoo.com", value);
+    expect(testvalue.getRole()).toBe(value);
+})

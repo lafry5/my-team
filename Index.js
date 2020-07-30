@@ -3,11 +3,15 @@ const inquirer = require("inquirer")
 let Manager = require("./lib/Manager.js")
 let Intern = require("./lib/Intern.js") 
 let Employee = require("./lib/Employee.js") 
-answers = [];
-data = [];
+const path = require("path");
 
-const output_directory = path.resolve(directoryname, "output")
-const outputPath = path.join(output_directory, "Team.html");
+
+const OUTPUT_DIR = path.resolve(__dirname,"output");
+const ouputPath = path.join(OUTPUT_DIR, "Team.html");
+const render = require("./src/generateTeam.js")
+
+const teamMembers = [];
+
 
 const generatePage = require('./src/generateTeam.js'); //says generatePage is not a function 
 
@@ -15,23 +19,17 @@ const generatePage = require('./src/generateTeam.js'); //says generatePage is no
 
 // function to write Team file
 
-// function writeToFile(fileName, data) {
-  
-//     fs.writeFile("Team.html", generatePage(data), (err) => {
-//             if (err) 
-//                 console.log(err);
-//           else {
-//             console.log('Team.html complete! Check it out!');
-//           }
-//         });
-// }
-
-function compileTeam() {
-  if(!fs.existsSync(output_directory)) {
-    fs.mkdirSync(output_directory)
-  }
-  fs.writeFileSync(outputPath, generatePage(teamMembers), "utf-8") // received assistance with this; need to understand this better
+function writeToFile(fileName, data) {
+     
+    fs.writeFile("Team.html", generatePage(data), (err) => {
+            if (err) 
+                console.log(err);
+          else {
+            console.log('Team.html complete! Check it out!');
+          }
+        });
 }
+
 
 
 //If role = intern then create new Instance
@@ -42,51 +40,118 @@ function compileTeam() {
 
 // function to initialize program
 
-function init() {
-inquirer
+function createTeamChart() {
+console.log('This will create a chart of your team members. Enjoy!')
+  inquirer
     .prompt([
       {
         type: 'input',
-        name: 'name',
-        message: 'what is your name'
+        name: 'name1',
+        message: 'Who the Manager?' // Manager 
       },
       {
         type: 'input',
-        name: 'id',
-        message: 'Enter your ID'
+        name: 'id1',
+        message: 'Enter his/her ID'
       },
       {
         type: 'input',
-        name: 'email',
-        message: 'What is your email?'
-      },
-      {
-        type: 'checkbox',
-        name: 'role',
-        message: 'What role on the project do you play?',
-        choices: ['Manager', 'Engineer', 'Intern'],
-      }, 
-      {
-        type: 'input',
-        name: 'officenumber',
-        message: 'What is your office phone number [use (xxx)xxx-xxxx format]?' // Manager only
+        name: 'email1',
+        message: 'What is their email?'
       },
       {
         type: 'input',
-        name: 'username',
-        message: 'What is your Github username?' // Engineer only
+        name: 'officenumber1',
+        message: 'What is their office phone number?'
       },
       {
         type: 'input',
-        name: 'school',
-        message: 'What is your school?' // Intern only
+        name: 'name2',
+        message: 'Name an Engineer?' // Engineer 
+      },
+      {
+        type: 'input',
+        name: 'id2',
+        message: 'Enter his/her ID'
+      },
+      {
+        type: 'input',
+        name: 'email2',
+        message: 'What is their email?'
+      },
+      {
+        type: 'input',
+        name: 'username2',
+        message: 'What is their Github username?' 
+      },
+      {
+        type: 'input',
+        name: 'name3',
+        message: 'Name another Engineer?' // Engineer 
+      },
+      {
+        type: 'input',
+        name: 'id3',
+        message: 'Enter his/her ID'
+      },
+      {
+        type: 'input',
+        name: 'email3',
+        message: 'What is their email?'
+      },
+      {
+        type: 'input',
+        name: 'username3',
+        message: 'What is their Github username?' 
+      },
+      {
+        type: 'input',
+        name: 'name4',
+        message: 'Name another Engineer?' // Engineer 
+      },
+      {
+        type: 'input',
+        name: 'id4',
+        message: 'Enter his/her ID'
+      },
+      {
+        type: 'input',
+        name: 'email4',
+        message: 'What is their email?'
+      },
+      {
+        type: 'input',
+        name: 'username4',
+        message: 'What is their Github username?' 
+      },
+      {
+        type: 'input',
+        name: 'name5',
+        message: 'Name an Intern?' // Intern 
+      },
+      {
+        type: 'input',
+        name: 'id5',
+        message: 'Enter his/her ID'
+      },
+      {
+        type: 'input',
+        name: 'email5',
+        message: 'What is their email?'
+      },
+      {
+        type: 'input',
+        name: 'school5',
+        message: 'What is their school?' // Intern only
       }]
-    )
+      )
       .then(function(answers){
         //   console.log(answers.title + ' is title')
         writeToFile('Team.html', answers);
+        console.log(answers)
+        
         });
     }
 
 
-init();
+createTeamChart();

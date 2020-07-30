@@ -11,8 +11,8 @@ test ("Can set GitHub username through constructor arguments", function() {  // 
     expect(testvalue.username).toBe(username);
 })
 
-// test ("Can get role via getRole function and result is Engineer", function() {    // FAILS
-//     const value = "Engineer";
-//     const testvalue = new Employee("Laura", 54424, "lafry5@yahoo.com");
-//     expect(testvalue.getRole()).toBe(value);
-// })
+test ("Can get role via getRole function and result is Engineer", function() {    // Passes
+    const value = "Engineer";
+    const testvalue = new Engineer("Laura", 54424, "lafry5@yahoo.com", value);
+    expect(testvalue.getRole()).toBe(value);
+})

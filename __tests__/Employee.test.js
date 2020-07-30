@@ -42,9 +42,9 @@ test ("Can get email via getEmail function", function() {  // Passes
     expect(testvalue.getEmail()).toBe(value);
 })
 
-// test ("Can get role via getRole function and result is Employee", function() {    // FAILS
-//     const value = "Employee";
-//     const testvalue = new Employee("Laura", 54424, "lafry5@yahoo.com");
-//     expect(testvalue.getRole()).toBe(value);
-// })
+test ("Can get role via getRole function and result is Employee", function() {    // Passes
+    const value = "Employee";
+    const testvalue = new Employee("Laura", 54424, "lafry5@yahoo.com");
+    expect(testvalue.getRole()).toBe(value);
+})
 

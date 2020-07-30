@@ -2,3 +2,29 @@
     background-color: #E84855;
     color: #ffffff;
 }
+
+#today {
+    background-color: lightgray;
+    border: solid, black;
+    border-top: solid, black;
+    border-bottom: solid, black;
+    border-left: solid, black;
+    border-right: solid, black;
+    padding: 10px;
+    margin: 10px;
+    font-family: sans-serif
+ }
+
+/* .name {
+    display: inline;
+
+} */
+
+.title {
+    display: inline-block; 
+} 
+
+/* .jumbotron {
+    background-color: blue;
+} */
+
