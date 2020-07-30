@@ -28,55 +28,55 @@
         <div class="row">
           <div class="card col-md-4">
             <div class="col-12 jumbotron">    
-                <h4 class="name">${data.name1}</h4>
+                <h4 class="name">${Manager.getName()}</h4>
                 <i class="fa fa-coffee"> </i>
-                <p class = "title">Manager</p>
+                <p class = "title">${Manager.getRole()}</p>
             </div>
                 <div class = "list-group">
-                <p id="list-group-id">ID: ${data.id1} </p>
-                <p id="list-group-email">Email: ${data.email1}</p>
-                <p id="list-group-other">Office number: ${data.officenumber1}</p>
+                <p id="list-group-id">ID: ${Manager.getId()} </p>
+                <p id="list-group-email">Email: <a href="mailto:${Manager.getEmail()}">${Manager.getEmail()}</a></p>
+                <p id="list-group-other">Office number: ${Manager.getOfficeNumber()}</p>
                 </div>
             </div> 
         
           <div class="card col-md-4">
             <div class="col-12 jumbotron">    
-                <h4 class="name">${data.name2}</h4>
+                <h4 class="name">${Engineer.getName()}</h4>
                 <i class="fa fa-laptop"> </i>
-                <p class = "title">Engineer</p>
+                <p class = "title">${Engineer.getRole()}</p>
             </div>
                 <div class = "list-group">
-                <p id="list-group-id">ID: ${data.id2}</p>
-                <p id="list-group-email">Email: ${data.email2}</p>
-                <p id="list-group-other">GitHub: ${data.username2}</p>
-                </div>
-            </div> 
-          
-        
-          <div class="card col-md-4">
-            <div class="col-12 jumbotron">    
-                <h4 class="name">${data.name3}</h4>
-                <i class="fa fa-laptop"> </i>
-                <p class = "title">Engineer</p>
-            </div>
-                <div class = "list-group">
-                <p id="list-group-id">ID: ${data.id3}</p>
-                <p id="list-group-email">Email: ${data.email3}</p>
-                <p id="list-group-other">GitHub: ${data.username3}</p>
+                <p id="list-group-id">ID: ${Engineer.getId()}</p>
+                <p id="list-group-email">Email: <a href="mailto:${Engineer.getEmail()}">${Engineer.getEmail()}</a></p>
+                <p id="list-group-other">GitHub: <a href="https://github.com/${Engineer.getUserName()}">${Engineer.getUserName()}</a></p>
                 </div>
             </div> 
           
         
           <div class="card col-md-4">
             <div class="col-12 jumbotron">    
-                <h4 class="name">${data.name4}</h4>
+                <h4 class="name">${Engineer.getName()}</h4>
                 <i class="fa fa-laptop"> </i>
-                <p class = "title">Engineer</p>
+                <p class = "title">${Engineer.getRole()}</p>
             </div>
                 <div class = "list-group">
-                <p id="list-group-id">ID: ${data.id4}</p>
-                <p id="list-group-email">Email: ${data.email4}</p>
-                <p id="list-group-other">GitHub: ${data.username4}</p>
+                <p id="list-group-id">ID: ${Engineer.getId()}</p>
+                <p id="list-group-email">Email: <a href="mailto:${Engineer.getEmail()}">${Engineer.getEmail()}</a></p>
+                <p id="list-group-other">GitHub: <a href="https://github.com/${Engineer.getUserName()}">${Engineer.getUserName()}</a></p>
+                </div>
+            </div> 
+          
+        
+          <div class="card col-md-4">
+            <div class="col-12 jumbotron">    
+                <h4 class="name">${Engineer.getName()}</h4>
+                <i class="fa fa-laptop"> </i>
+                <p class = "title">${Engineer.getRole()}</p>
+            </div>
+                <div class = "list-group">
+                    <p id="list-group-id">ID: ${Engineer.getId()}</p>
+                    <p id="list-group-email">Email: <a href="mailto:${Engineer.getEmail()}">${Engineer.getEmail()}</a></p>
+                    <p id="list-group-other">GitHub: <a href="https://github.com/${Engineer.getUserName()}">${Engineer.getUserName()}</a></p>
                 </div>
             </div> 
    
@@ -84,14 +84,14 @@
         
           <div class="card col-md-4">
             <div class="col-12 jumbotron">    
-                <h4 class="name">${data.name5}</h4>
+                <h4 class="name">${Intern.getName()}</h4>
                 <i class="fa fa-graduation-cap"></i>
-                <p class = "title">Intern</p>
+                <p class = "title">${Intern.getRole()}</p>
             </div>
                 <div class = "list-group">
-                <p id="list-group-id">ID: ${data.id5}</p>
-                <p id="list-group-email">Email: ${data.email5}</p>
-                <p id="list-group-other">School: ${data.school5}</p>
+                <p id="list-group-id">ID: ${Intern.getId()}</p>
+                <p id="list-group-email">Email: <a href="mailto:${Intern.getEmail()}">${Intern.getEmail()}</a></p>
+                <p id="list-group-other">School: ${Intern.getSchool()}</p>
                 </div>
             </div> 
 

@@ -40,118 +40,128 @@ function writeToFile(fileName, data) {
 
 // function to initialize program
 
-function createTeamChart() {
-console.log('This will create a chart of your team members. Enjoy!')
+function startTeam() {
+
+function createManager(){
+  console.log('This will create a chart of your team members. Enjoy!')
   inquirer
     .prompt([
       {
         type: 'input',
-        name: 'name1',
-        message: 'Who the Manager?' // Manager 
+        name: 'Managername',
+        message: "What is the Manager's name?" 
       },
       {
         type: 'input',
-        name: 'id1',
+        name: 'ManagerId',
+        message: "Enter his/her ID"
+      },
+      {
+        type: 'input',
+        name: 'ManagerEmail',
+        message: "What is their email?"
+      },
+      {
+        type: 'input',
+        name: 'ManagerOfficeNumber',
+        message: "What is their office phone number?"
+      }
+      ]).then(answers => {
+        const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
+        teamMembers.push(manager);
+       
+        createTeam();
+      });
+    } //end of createManager
+      
+    function createTeam() {
+      inquirer
+      .prompt([
+      {
+        type: 'checkbox',
+        name: 'role2',
+        message: "What is the next role on the team? (Choose one)",
+        choices: ["Engineer", "Intern", "No more team members"]  
+      }
+    ]).then(userChoice => {
+      switch (userChoice.memberChoice) {
+        case "Engineer":
+        addEngineer();
+        break;
+        case "Intern":
+          addIntern();
+          break;
+          default:
+            writeToFile();
+      }
+    });
+  }
+
+    function addEngineer(){
+      inquirer
+      .prompt([
+        {
+       type: 'input',
+        name: 'engineerName',
+        message: "Name an Engineer?" // Engineer 
+      },
+      {
+        type: 'input',
+        name: 'engineerId',
         message: 'Enter his/her ID'
       },
       {
         type: 'input',
-        name: 'email1',
+        name: 'engineerEmail',
         message: 'What is their email?'
       },
       {
         type: 'input',
-        name: 'officenumber1',
-        message: 'What is their office phone number?'
-      },
-      {
-        type: 'input',
-        name: 'name2',
-        message: 'Name an Engineer?' // Engineer 
-      },
-      {
-        type: 'input',
-        name: 'id2',
-        message: 'Enter his/her ID'
-      },
-      {
-        type: 'input',
-        name: 'email2',
-        message: 'What is their email?'
-      },
-      {
-        type: 'input',
-        name: 'username2',
+        name: 'engineerUserName',
         message: 'What is their Github username?' 
-      },
-      {
+      }
+      ]).then(answers => {
+        const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerUserName);
+        teamMembers.push(engineer);
+        createTeam();
+      });
+    }
+      
+      function addIntern() {
+        inquirer
+        .prompt([
+         {
         type: 'input',
-        name: 'name3',
-        message: 'Name another Engineer?' // Engineer 
-      },
-      {
-        type: 'input',
-        name: 'id3',
-        message: 'Enter his/her ID'
-      },
-      {
-        type: 'input',
-        name: 'email3',
-        message: 'What is their email?'
-      },
-      {
-        type: 'input',
-        name: 'username3',
-        message: 'What is their Github username?' 
-      },
-      {
-        type: 'input',
-        name: 'name4',
-        message: 'Name another Engineer?' // Engineer 
-      },
-      {
-        type: 'input',
-        name: 'id4',
-        message: 'Enter his/her ID'
-      },
-      {
-        type: 'input',
-        name: 'email4',
-        message: 'What is their email?'
-      },
-      {
-        type: 'input',
-        name: 'username4',
-        message: 'What is their Github username?' 
-      },
-      {
-        type: 'input',
-        name: 'name5',
+        name: 'internName',
         message: 'Name an Intern?' // Intern 
       },
       {
         type: 'input',
-        name: 'id5',
+        name: 'internId',
         message: 'Enter his/her ID'
       },
       {
         type: 'input',
-        name: 'email5',
+        name: 'internEmail',
         message: 'What is their email?'
       },
       {
         type: 'input',
-        name: 'school5',
+        name: 'internSchool',
         message: 'What is their school?' // Intern only
-      }]
-      )
-      .then(function(answers){
-        //   console.log(answers.title + ' is title')
-        writeToFile('Team.html', answers);
-        console.log(answers)
-        
-        });
-    }
+      }
+    ]).then(answers => {
+      const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+      teamMembers.push(intern);
+      idArray.push(answers.internId);
+      createTeam();
+    });
+  }
+    
+    
+        createManager();
+
+  } // end of startTeam 
 
 
-createTeamChart();
+startTeam();
