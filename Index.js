@@ -3,15 +3,15 @@ const inquirer = require("inquirer")
 const Manager = require("./lib/Manager.js")
 const Intern = require("./lib/Intern.js") 
 const Engineer = require("./lib/Engineer.js")
-//don't need employee? verify 
+
 const path = require("path");
-var data = []; // do we need this?
+
 
 const teamMembers = [];
 
 const OUTPUT_DIR = path.resolve(__dirname,"output")
 const outputPath = path.join(OUTPUT_DIR, "Team.html");
-const render = require("./src/generateTeam.js").default;
+const render = require("./src/generateTeam.js")
 
 
 
@@ -22,6 +22,20 @@ function writeFile() {  //call once after teamMembers is built
   }
   fs.writeFileSync(outputPath, render(teamMembers)); //path, data, other info
 }
+
+// const generatePage = require('./src/generateTeam.js');
+
+
+// function writeFile(fileName, teamMembers) {
+ 
+//   fs.writetoFile("Team.html", generatePage(teamMembers), (err) => {  //issues with this line
+//         if (err) 
+//               console.log(err);
+//         else {
+//           console.log('Team.html! Check out Team.html to see the output!');
+//         }
+//       });
+// }
 
 
 
@@ -95,7 +109,7 @@ function startTeam() {
         {
           // console.log('in No more team members else if')
           console.log('Team is built')
-          writeFile("Team.html", teamMembers);
+          writeFile("Team.html", teamMembers); //issues with this line
         }
     });
   } //end of createTeam()
