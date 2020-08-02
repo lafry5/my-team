@@ -27,14 +27,14 @@ const teamMembers = [];
 const generatePage = require('./src/generateTeam.js');
 
 
-function writeFile(answers) {
+function write(answers) {
   console.log('in the writeFile function')
-  fs.writetoFile("Team.html", generatePage(answers), (err) => {  
+  fs.writeFile('Team.html', generatePage(answers), (err) => {  
     console.log(answers)    
     if (err) 
               console.log(err);
         else {
-          console.log('Team.html! Check out Team.html to see the output!');
+          console.log('Team.html generated! Check out Team.html to see the output.');
         }
       });
 }
@@ -281,7 +281,7 @@ function createTeam() {
           {
             type: 'input',
               name: 'engineerName2',
-              message: "Name an Engineer on the team (enter N/A for Engineer questions if N/A)" // Engineer 
+              message: "Name another Engineer on the team (enter N/A for Engineer questions if N/A)" // Engineer 
             },
             {
               type: 'input',
@@ -307,7 +307,7 @@ function createTeam() {
               {
                 type: 'input',
                   name: 'engineerName3',
-                  message: "Name an Engineer on the team (enter N/A for Engineer questions if N/A)" // Engineer 
+                  message: "Name another Engineer on the team (enter N/A for Engineer questions if N/A)" // Engineer 
                 },
                 {
                   type: 'input',
@@ -357,7 +357,7 @@ function createTeam() {
           choices: ["Manager", "Engineer", "Intern"],  
           },
         ]).then(function(answers){
-          writeFile('Team.html', answers)
+          write('Team.html', answers)
           console.log(answers)
   });
   

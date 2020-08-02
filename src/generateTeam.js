@@ -1,11 +1,12 @@
 //  /////////////////////////////////////////////////////////////////////////////
 
-const Manager = require("../lib/Manager");
+// const Manager = require("../lib/Manager");
 const Engineer = require("../lib/Engineer");
 const Intern = require("../lib/Intern.js");
-const Employee = require("../lib/Employee.js");
+// const Employee = require("../lib/Employee.js");
 
  function createTeam(Employee) {
+    console.log(Employee)
 
     return`
     <!DOCTYPE html>
@@ -36,28 +37,28 @@ const Employee = require("../lib/Employee.js");
 
                         <div class="card col-md-4">
                         <div class="col-12 jumbotron">    
-                            <h4 class="name">${Employee.managerName}</h4>
+                            <h4 class="name">${Engineer.managerName}</h4>
                             <i class="fa fa-coffee"> </i>
-                            <p class = "title">${Employee.managerRole}</p>
+                            <p class = "title">${Engineer.managerRole}</p>
                         </div>
                             <div class = "list-group">
-                            <p id="list-group-id">ID: ${Employee.managerId} </p>
-                            <p id="list-group-email">Email: <a href="mailto:${Employee.managerEmail}">${Employee.managerEmail}</a></p>
-                            <p id="list-group-other">Office number: ${Employee.managerOfficeNumber}</p>
+                            <p id="list-group-id">ID: ${Engineer.managerId} </p>
+                            <p id="list-group-email">Email: <a href="mailto:${Engineer.managerEmail}">${Engineer.managerEmail}</a></p>
+                            <p id="list-group-other">Office number: ${Engineer.managerOfficeNumber}</p>
                             </div>
                         </div> 
        
     
                         <div class="card col-md-4">
                         <div class="col-12 jumbotron">    
-                            <h4 class="name">${Employee.engineerName1}</h4>
+                            <h4 class="name">${Engineer.engineerName1}</h4>
                             <i class="fa fa-laptop"> </i>
-                            <p class = "title">${Employee.engineerRole}</p>
+                            <p class = "title">${Engineer.engineerRole}</p>
                         </div>
                             <div class = "list-group">
-                            <p id="list-group-id">ID: ${Employee.engineerId1}</p>
-                            <p id="list-group-email">Email: <a href="mailto:${Employee.engineerEmail1}">${Employee.engineerEmail1}</a></p>
-                            <p id="list-group-other">GitHub: <a href="https://github.com/${Employee.engineerUserName1}">${Employee.engineerUserName1}</a></p>
+                            <p id="list-group-id">ID: ${Engineer.engineerId1}</p>
+                            <p id="list-group-email">Email: <a href="mailto:${Engineer.engineerEmail1}">${Engineer.engineerEmail1}</a></p>
+                            <p id="list-group-other">GitHub: <a href="https://github.com/${Engineer.engineerUserName1}">${Engineer.engineerUserName1}</a></p>
                             </div>
                         </div>
 
@@ -81,7 +82,7 @@ const Employee = require("../lib/Employee.js");
                         <div class="col-12 jumbotron">    
                             <h4 class="name">${Engineer.engineerName3}</h4>
                             <i class="fa fa-laptop"> </i>
-                            <p class = "title">${Engineerr.engineerRole}</p>
+                            <p class = "title">${Engineer.engineerRole}</p>
                         </div>
                             <div class = "list-group">
                             <p id="list-group-id">ID: ${Engineer.engineerId3}</p>
@@ -93,14 +94,14 @@ const Employee = require("../lib/Employee.js");
 
                         <div class="card col-md-4">
                             <div class="col-12 jumbotron">    
-                                <h4 class="name">${Intern.getName()}</h4>
+                                <h4 class="name">${Intern.name}</h4>
                                 <i class="fa fa-graduation-cap"></i>
-                                <p class = "title">${Intern.getRole()}</p>
+                                <p class = "title">${Intern.role}</p>
                             </div>
                                 <div class = "list-group">
-                                <p id="list-group-id">ID: ${Intern.getId()}</p>
-                                <p id="list-group-email">Email: <a href="mailto:${Intern.getEmail()}">${Intern.getEmail()}</a></p>
-                                <p id="list-group-other">School: ${Intern.getSchool()}</p>
+                                <p id="list-group-id">ID: ${Intern.Id}</p>
+                                <p id="list-group-email">Email: <a href="mailto:${Intern.email}">${Intern.email}</a></p>
+                                <p id="list-group-other">School: ${Intern.school}</p>
                                 </div>
                             </div> 
     
