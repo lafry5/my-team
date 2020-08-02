@@ -9,180 +9,360 @@ const path = require("path");
 
 const teamMembers = [];
 
-const OUTPUT_DIR = path.resolve(__dirname,"output")
-const outputPath = path.join(OUTPUT_DIR, "Team.html");
-const render = require("./src/generateTeam.js")
+// // from https://stackoverflow.com/questions/39962913/write-file-from-a-template-in-node-js
+
+// const generateTeam = require("./src/generateTeam.js")
+// const source = 'generateHTML(teamMembers)';
+// const template = generateTeam.compile(source)
+// const contents = template('generateTeam.js');
+
+// fs.writeFile('Team.html', contents, err => {
+//   if (err) {
+//     return console.err('Failed to write Team.html')
+//   }
+//   console.log('Saved file');
+// });
+
+// ////////////////////////////////////////////////////////////////////////////////////////
+const generatePage = require('./src/generateTeam.js');
 
 
-
-function writeFile() {  //call once after teamMembers is built
-  // create output directory
-  if (!fs.existsSync(OUTPUT_DIR)) {
-    fs.mkdirSync(OUTPUT_DIR)
-  }
-  fs.writeFileSync(outputPath, render(teamMembers)); //path, data, other info
+function writeFile(answers) {
+  console.log('in the writeFile function')
+  fs.writetoFile("Team.html", generatePage(answers), (err) => {  
+    console.log(answers)    
+    if (err) 
+              console.log(err);
+        else {
+          console.log('Team.html! Check out Team.html to see the output!');
+        }
+      });
 }
+/////////////////////////////////////////////////////////////////////////////////////////////////
 
-// const generatePage = require('./src/generateTeam.js');
 
+// const OUTPUT_DIR = path.resolve(__dirname,"output")
+// const outputPath = path.join(OUTPUT_DIR, "Team.html");
 
-// function writeFile(fileName, teamMembers) {
- 
-//   fs.writetoFile("Team.html", generatePage(teamMembers), (err) => {  //issues with this line
-//         if (err) 
-//               console.log(err);
-//         else {
-//           console.log('Team.html! Check out Team.html to see the output!');
-//         }
-//       });
+// function writeFile() {  //call once after teamMembers is built
+//   // create output directory
+//   if (!fs.existsSync(OUTPUT_DIR)) {
+//     fs.mkdirSync(OUTPUT_DIR)
+//   }
+//   console.log("teamMembers from write file: ", teamMembers);
+//   fs.writeFileSync(outputPath, render(teamMembers)); //path, data, other info
 // }
 
+//// This is the start of the responsive questions //////////////////////////////////////////
+// function startTeam() {
 
 
-function startTeam() {
-
-
-    function createManager(){
-      console.log('This will create a chart of your team members. Enjoy!')
-      inquirer
-        .prompt([
-          {
-            type: 'input',
-            name: 'ManagerName',
-            message: "What is the Manager's name?" 
-          },
-          {
-            type: 'input',
-            name: 'ManagerId',
-            message: "Enter his/her ID"
-          },
-          {
-            type: 'input',
-            name: 'ManagerEmail',
-            message: "What is their email?"
-          },
-          {
-            type: 'checkbox',
-            name: 'role1',
-            message: "Please confirm their role on the team.",
-            choices: ["Manager", "Engineer", "Intern"]  
-          },
-          {
-            type: 'input',
-            name: 'ManagerOfficeNumber',
-            message: "What is their office phone number?"
-          }
-          ]).then(function(answers) {
-            const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerRole, answers.managerOfficeNumber);
-            teamMembers.push(manager);
-            // console.log('Name' + teamMembers.managerName);
-            // console.log('Id' + teamMembers.managerId);
-            // console.log('Email' + teamMembers.managerEmail);
-            // console.log('Office Number' + teamMembers.managerOfficeNumber);
-            createTeam();
-          });
-        } //end of createManager
+//     function createManager(){
+//       console.log('This will create a chart of your team members. Enjoy!')
+//       inquirer
+//         .prompt([
+//           {
+//             type: 'input',
+//             name: 'managerName',
+//             message: "What is the Manager's name?" 
+//           },
+//           {
+//             type: 'input',
+//             name: 'managerId',
+//             message: "Enter his/her ID"
+//           },
+//           {
+//             type: 'input',
+//             name: 'managerEmail',
+//             message: "What is their email?"
+//           },
+//           {
+//             type: 'input',
+//             name: 'managerOfficeNumber',
+//             message: "What is their office phone number?"
+//           }
+//           ]).then(function(answers) {
+//             answers.managerRole = 'manager'; 
+//             const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerRole, answers.managerOfficeNumber);
+//             manager.role = 'manager';
+//             teamMembers.push(manager);
+//             // console.log(teamMembers + 'teamMembers')
+//             // console.log(teamMembers.managerName + 'teamMembers.managerName')
+//             // console.log('Name' + teamMembers.manager.name + 'teamMembers.manager.name');
+//             // console.log('Id' + teamMembers.manager.id);
+//             // console.log('Email' + teamMembers.manager.email);
+//             // console.log('Office Number' + teamMembers.managerrole);
+//             // console.log('Role' + teamMembers.manager.officenumber)
+//             createTeam();
+//           });
+//         } //end of createManager
   
 
 
-    function createTeam() {
-      inquirer
-      .prompt([
-      {
-        type: 'checkbox',
-        name: 'role2',
-        message: "What is the next role on the team? (Choose one)",
-        choices: ["Engineer", "Intern", "No more team members"]  
-      }
-    ]).then(function(userChoice) {
-    //  console.log('userChoice.role2 is' + userChoice.role2)
-      if (userChoice.role2 == "Engineer")
-        {
-          addEngineer();
-        }
-        else if (userChoice.role2 == "Intern")
-        {
-          // console.log('in Intern else if')
-          addIntern();
-        } 
-        else if (userChoice.role2 == "No more team members")
-        {
-          // console.log('in No more team members else if')
-          console.log('Team is built')
-          writeFile("Team.html", teamMembers); //issues with this line
-        }
-    });
-  } //end of createTeam()
+//     function createTeam() {
+//       inquirer
+//       .prompt([
+//       {
+//         type: 'checkbox',
+//         name: 'role2',
+//         message: "What is the next role on the team? (Choose one)",
+//         choices: ["Engineer", "Intern", "No more team members"]  
+//       }
+//     ]).then(function(userChoice) {
+//     //  console.log('userChoice.role2 is' + userChoice.role2)
+//       if (userChoice.role2 == "Engineer")
+//         {
+//           engineerRole = userChoice.role2;
+//           addEngineer();
+//         }
+//         else if (userChoice.role2 == "Intern")
+//         {
+//           internRole = userChoice.role2;
+//           // console.log('in Intern else if')
+//           addIntern();
+//         } 
+//         else if (userChoice.role2 == "No more team members")
+//         {
+//           // console.log('in No more team members else if')
+//           console.log('Team is built')
+//           writeFile("Team.html", teamMembers); 
+//         }
+//     });
+//   } //end of createTeam()
 
 
 
-    function addEngineer(){
-      inquirer
-      .prompt([
-        {
-       type: 'input',
-        name: 'engineerName',
-        message: "Name an Engineer" // Engineer 
-      },
-      {
-        type: 'input',
-        name: 'engineerId',
-        message: 'Enter his/her ID'
-      },
-      {
-        type: 'input',
-        name: 'engineerEmail',
-        message: 'What is their email?'
-      },
-      {
-        type: 'input',
-        name: 'engineerUserName',
-        message: 'What is their Github username?' 
-      }
-      ]).then(function(answers){
-        const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerRole, answers.engineerUserName);
-        teamMembers.push(engineer);
-        createTeam();
-      });
-    } //end of addEngineer()
+//     function addEngineer(){
+//       inquirer
+//       .prompt([
+//         {
+//        type: 'input',
+//         name: 'engineerName',
+//         message: "Name an Engineer" // Engineer 
+//       },
+//       {
+//         type: 'input',
+//         name: 'engineerId',
+//         message: 'Enter his/her ID'
+//       },
+//       {
+//         type: 'input',
+//         name: 'engineerEmail',
+//         message: 'What is their email?'
+//       },
+//       {
+//         type: 'input',
+//         name: 'engineerUserName',
+//         message: 'What is their Github username?' 
+//       }
+//       ]).then(function(answers){
+//         answers.engineerRole = 'engineer';
+//         const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerRole, answers.engineerUserName);
+//         engineer.role = 'engineer';
+//         teamMembers.push(engineer);
+//             // console.log('Name' + teamMembers.engineerName);
+//             // console.log('Id' + teamMembers.engineerId);
+//             // console.log('Email' + teamMembers.engineerEmail);
+//             // console.log('UserName' + teamMembers.engineerUserName);
+//             // console.log('Role' + teamMembers.engineerRole)
+//         createTeam();
+//       });
+//     } //end of addEngineer()
       
 
 
-      function addIntern() {
-        inquirer
-        .prompt([
-         {
-        type: 'input',
-        name: 'internName',
-        message: 'Name an Intern' // Intern 
-      },
-      {
-        type: 'input',
-        name: 'internId',
-        message: 'Enter his/her ID'
-      },
-      {
-        type: 'input',
-        name: 'internEmail',
-        message: 'What is their email?'
-      },
-      {
-        type: 'input',
-        name: 'internSchool',
-        message: 'What is their school?' // Intern only
-      }
-    ]).then(function(answers){
-      const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internRole, answers.internSchool);
-      teamMembers.push(intern);
-      createTeam();
-    });
-  } //end of addIntern()
+//       function addIntern() {
+//         inquirer
+//         .prompt([
+//          {
+//         type: 'input',
+//         name: 'internName',
+//         message: 'Name an Intern' // Intern 
+//       },
+//       {
+//         type: 'input',
+//         name: 'internId',
+//         message: 'Enter his/her ID'
+//       },
+//       {
+//         type: 'input',
+//         name: 'internEmail',
+//         message: 'What is their email?'
+//       },
+//       {
+//         type: 'input',
+//         name: 'internSchool',
+//         message: 'What is their school?' // Intern only
+//       }
+//     ]).then(function(answers){
+//       answers.managerRole = 'intern'; 
+//       const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internRole, answers.internSchool);
+//       intern.role = 'intern'; 
+//       teamMembers.push(intern);
+//           teamMembers.internRole = intern;
+//             // console.log('Name' + teamMembers.internName);
+//             // console.log('Id' + teamMembers.internId);
+//             // console.log('Email' + teamMembers.internEmail);
+//             // console.log('School' + teamMembers.internSchool);
+//             // console.log('Role' + teamMembers.internRole)
+//       createTeam();
+//     });
+//   } //end of addIntern()
     
 
 
-  createManager();
+//   createManager();
 
-  } // end of startTeam 
+//   } // end of startTeam 
 
 
-startTeam();
+// startTeam();
+
+// //////////////////////////////////////////////////////////////////////////////////////////////
+
+function createTeam() {
+
+
+    console.log('This will create a chart of your team members. Enjoy!')
+    inquirer
+      .prompt([
+        {
+          type: 'input',
+          name: 'managerName',
+          message: "What is the Manager's name?" 
+        },
+        {
+          type: 'input',
+          name: 'managerId',
+          message: "Enter his/her ID"
+        },
+        {
+          type: 'input',
+          name: 'managerEmail',
+          message: "What is their email?"
+        },
+        {
+          type: 'input',
+          name: 'managerOfficeNumber',
+          message: "What is their office phone number?"
+        },
+        {
+        type: 'checkbox',
+        name: 'managerRole',
+        message: "Confirm the Manager's role on the team? (Choose Manager)",
+        choices: ["Manager", "Engineer", "Intern"]  
+        }, 
+        {
+        type: 'input',
+          name: 'engineerName1',
+          message: "Name an Engineer on the team (enter N/A for Engineer questions if N/A)" // Engineer 
+        },
+        {
+          type: 'input',
+          name: 'engineerId1',
+          message: 'Enter his/her ID'
+        },
+        {
+          type: 'input',
+          name: 'engineerEmail1',
+          message: 'What is their email?'
+        },
+        {
+          type: 'input',
+          name: 'engineerUserName1',
+          message: 'What is their Github username?' 
+        },
+        {
+          type: 'checkbox',
+          name: 'engineerRole',
+          message: "Confirm the Engineer's role on the team? (Choose Engineer)",
+          choices: ["Manager", "Engineer", "Intern"]  
+          },
+          {
+            type: 'input',
+              name: 'engineerName2',
+              message: "Name an Engineer on the team (enter N/A for Engineer questions if N/A)" // Engineer 
+            },
+            {
+              type: 'input',
+              name: 'engineerId2',
+              message: 'Enter his/her ID'
+            },
+            {
+              type: 'input',
+              name: 'engineerEmail2',
+              message: 'What is their email?'
+            },
+            {
+              type: 'input',
+              name: 'engineerUserName2',
+              message: 'What is their Github username?' 
+            },
+            {
+              type: 'checkbox',
+              name: 'engineerRole',
+              message: "Confirm the Engineer's role on the team? (Choose Engineer)",
+              choices: ["Manager", "Engineer", "Intern"]  
+              },
+              {
+                type: 'input',
+                  name: 'engineerName3',
+                  message: "Name an Engineer on the team (enter N/A for Engineer questions if N/A)" // Engineer 
+                },
+                {
+                  type: 'input',
+                  name: 'engineerId3',
+                  message: 'Enter his/her ID'
+                },
+                {
+                  type: 'input',
+                  name: 'engineerEmail3',
+                  message: 'What is their email?'
+                },
+                {
+                  type: 'input',
+                  name: 'engineerUserName3',
+                  message: 'What is their Github username?' 
+                },
+                {
+                  type: 'checkbox',
+                  name: 'engineerRole',
+                  message: "Confirm the Engineer's role on the team? (Choose Engineer)",
+                  choices: ["Manager", "Engineer", "Intern"]  
+                  },  
+          {
+          type: 'input',
+          name: 'internName',
+          message: 'Name an Intern' // Intern 
+        },
+        {
+          type: 'input',
+          name: 'internId',
+          message: 'Enter his/her ID'
+        },
+        {
+          type: 'input',
+          name: 'internEmail',
+          message: 'What is their email?'
+        },
+        {
+          type: 'input',
+          name: 'internSchool',
+          message: 'What is their school?' // Intern only
+        },
+        {
+          type: 'checkbox',
+          name: 'internRole',
+          message: "Confirm the Intern's role on the team? (Choose Intern)",
+          choices: ["Manager", "Engineer", "Intern"],  
+          },
+        ]).then(function(answers){
+          writeFile('Team.html', answers)
+          console.log(answers)
+  });
+  
+
+} // end of createTeam
+
+
+createTeam();
