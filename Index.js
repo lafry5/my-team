@@ -9,21 +9,7 @@ const path = require("path");
 
 const teamMembers = [];
 
-// // from https://stackoverflow.com/questions/39962913/write-file-from-a-template-in-node-js
 
-// const generateTeam = require("./src/generateTeam.js")
-// const source = 'generateHTML(teamMembers)';
-// const template = generateTeam.compile(source)
-// const contents = template('generateTeam.js');
-
-// fs.writeFile('Team.html', contents, err => {
-//   if (err) {
-//     return console.err('Failed to write Team.html')
-//   }
-//   console.log('Saved file');
-// });
-
-// ////////////////////////////////////////////////////////////////////////////////////////
 const generatePage = require('./src/generateTeam.js');
 
 
@@ -38,22 +24,184 @@ function write(answers) {
         }
       });
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////
+
+function createTeam() {
 
 
-// const OUTPUT_DIR = path.resolve(__dirname,"output")
-// const outputPath = path.join(OUTPUT_DIR, "Team.html");
+    console.log('This will create a chart of your team members. Enjoy!')
+    inquirer
+      .prompt([
+        {
+          type: 'input',
+          name: 'managerName',
+          message: "What is the Manager's name?" 
+        },
+        {
+          type: 'input',
+          name: 'managerId',
+          message: "Enter his/her ID"
+        },
+        {
+          type: 'input',
+          name: 'managerEmail',
+          message: "What is their email?"
+        },
+        {
+          type: 'input',
+          name: 'managerOfficeNumber',
+          message: "What is their office phone number?"
+        },
+        {
+        type: 'checkbox',
+        name: 'managerRole',
+        message: "Confirm the Manager's role on the team? (Choose Manager)",
+        choices: ["Manager", "Engineer", "Intern"]  
+        }, 
+        {
+        type: 'input',
+          name: 'engineerName1',
+          message: "Name an Engineer on the team (enter N/A for Engineer questions if N/A)" // Engineer 
+        },
+        {
+          type: 'input',
+          name: 'engineerId1',
+          message: 'Enter his/her ID'
+        },
+        {
+          type: 'input',
+          name: 'engineerEmail1',
+          message: 'What is their email?'
+        },
+        {
+          type: 'input',
+          name: 'engineerUserName1',
+          message: 'What is their Github username?' 
+        },
+        {
+          type: 'checkbox',
+          name: 'engineerRole',
+          message: "Confirm the Engineer's role on the team? (Choose Engineer)",
+          choices: ["Manager", "Engineer", "Intern"]  
+          },
+          {
+            type: 'input',
+              name: 'engineerName2',
+              message: "Name another Engineer on the team (enter N/A for Engineer questions if N/A)" // Engineer 
+            },
+            {
+              type: 'input',
+              name: 'engineerId2',
+              message: 'Enter his/her ID'
+            },
+            {
+              type: 'input',
+              name: 'engineerEmail2',
+              message: 'What is their email?'
+            },
+            {
+              type: 'input',
+              name: 'engineerUserName2',
+              message: 'What is their Github username?' 
+            },
+            {
+              type: 'checkbox',
+              name: 'engineerRole',
+              message: "Confirm the Engineer's role on the team? (Choose Engineer)",
+              choices: ["Manager", "Engineer", "Intern"]  
+              },
+              {
+                type: 'input',
+                  name: 'engineerName3',
+                  message: "Name another Engineer on the team (enter N/A for Engineer questions if N/A)" // Engineer 
+                },
+                {
+                  type: 'input',
+                  name: 'engineerId3',
+                  message: 'Enter his/her ID'
+                },
+                {
+                  type: 'input',
+                  name: 'engineerEmail3',
+                  message: 'What is their email?'
+                },
+                {
+                  type: 'input',
+                  name: 'engineerUserName3',
+                  message: 'What is their Github username?' 
+                },
+                {
+                  type: 'checkbox',
+                  name: 'engineerRole',
+                  message: "Confirm the Engineer's role on the team? (Choose Engineer)",
+                  choices: ["Manager", "Engineer", "Intern"]  
+                  }, 
+                  {
+                    type: 'input',
+                      name: 'engineerName4',
+                      message: "Name another Engineer on the team (enter N/A for Engineer questions if N/A)" // Engineer 
+                    },
+                    {
+                      type: 'input',
+                      name: 'engineerId4',
+                      message: 'Enter his/her ID'
+                    },
+                    {
+                      type: 'input',
+                      name: 'engineerEmail4',
+                      message: 'What is their email?'
+                    },
+                    {
+                      type: 'input',
+                      name: 'engineerUserName4',
+                      message: 'What is their Github username?' 
+                    },
+                    {
+                      type: 'checkbox',
+                      name: 'engineerRole',
+                      message: "Confirm the Engineer's role on the team? (Choose Engineer)",
+                      choices: ["Manager", "Engineer", "Intern"]  
+                      },  
+              {
+              type: 'input',
+              name: 'internName',
+              message: 'Name an Intern, if applicable. If not, mark N/A.' // Intern 
+            },
+            {
+              type: 'input',
+              name: 'internId',
+              message: 'Enter his/her ID'
+            },
+            {
+              type: 'input',
+              name: 'internEmail',
+              message: 'What is their email?'
+            },
+            {
+              type: 'input',
+              name: 'internSchool',
+              message: 'What is their school?' // Intern only
+            },
+            {
+              type: 'checkbox',
+              name: 'internRole',
+              message: "Confirm the Intern's role on the team? (Choose Intern)",
+              choices: ["Manager", "Engineer", "Intern"],  
+              },
+            ]).then(function(answers){
+              write(answers)
+              console.log(answers)
+  });
+  
 
-// function writeFile() {  //call once after teamMembers is built
-//   // create output directory
-//   if (!fs.existsSync(OUTPUT_DIR)) {
-//     fs.mkdirSync(OUTPUT_DIR)
-//   }
-//   console.log("teamMembers from write file: ", teamMembers);
-//   fs.writeFileSync(outputPath, render(teamMembers)); //path, data, other info
-// }
+} // end of createTeam
+
+
+createTeam();
+
 
 //// This is the start of the responsive questions //////////////////////////////////////////
+///////// This works and stores responses in teamMembers!! //////////////////////////////////
+
 // function startTeam() {
 
 
@@ -219,150 +367,3 @@ function write(answers) {
 // startTeam();
 
 // //////////////////////////////////////////////////////////////////////////////////////////////
-
-function createTeam() {
-
-
-    console.log('This will create a chart of your team members. Enjoy!')
-    inquirer
-      .prompt([
-        {
-          type: 'input',
-          name: 'managerName',
-          message: "What is the Manager's name?" 
-        },
-        {
-          type: 'input',
-          name: 'managerId',
-          message: "Enter his/her ID"
-        },
-        {
-          type: 'input',
-          name: 'managerEmail',
-          message: "What is their email?"
-        },
-        {
-          type: 'input',
-          name: 'managerOfficeNumber',
-          message: "What is their office phone number?"
-        },
-        {
-        type: 'checkbox',
-        name: 'managerRole',
-        message: "Confirm the Manager's role on the team? (Choose Manager)",
-        choices: ["Manager", "Engineer", "Intern"]  
-        }, 
-        {
-        type: 'input',
-          name: 'engineerName1',
-          message: "Name an Engineer on the team (enter N/A for Engineer questions if N/A)" // Engineer 
-        },
-        {
-          type: 'input',
-          name: 'engineerId1',
-          message: 'Enter his/her ID'
-        },
-        {
-          type: 'input',
-          name: 'engineerEmail1',
-          message: 'What is their email?'
-        },
-        {
-          type: 'input',
-          name: 'engineerUserName1',
-          message: 'What is their Github username?' 
-        },
-        {
-          type: 'checkbox',
-          name: 'engineerRole',
-          message: "Confirm the Engineer's role on the team? (Choose Engineer)",
-          choices: ["Manager", "Engineer", "Intern"]  
-          },
-          {
-            type: 'input',
-              name: 'engineerName2',
-              message: "Name another Engineer on the team (enter N/A for Engineer questions if N/A)" // Engineer 
-            },
-            {
-              type: 'input',
-              name: 'engineerId2',
-              message: 'Enter his/her ID'
-            },
-            {
-              type: 'input',
-              name: 'engineerEmail2',
-              message: 'What is their email?'
-            },
-            {
-              type: 'input',
-              name: 'engineerUserName2',
-              message: 'What is their Github username?' 
-            },
-            {
-              type: 'checkbox',
-              name: 'engineerRole',
-              message: "Confirm the Engineer's role on the team? (Choose Engineer)",
-              choices: ["Manager", "Engineer", "Intern"]  
-              },
-              {
-                type: 'input',
-                  name: 'engineerName3',
-                  message: "Name another Engineer on the team (enter N/A for Engineer questions if N/A)" // Engineer 
-                },
-                {
-                  type: 'input',
-                  name: 'engineerId3',
-                  message: 'Enter his/her ID'
-                },
-                {
-                  type: 'input',
-                  name: 'engineerEmail3',
-                  message: 'What is their email?'
-                },
-                {
-                  type: 'input',
-                  name: 'engineerUserName3',
-                  message: 'What is their Github username?' 
-                },
-                {
-                  type: 'checkbox',
-                  name: 'engineerRole',
-                  message: "Confirm the Engineer's role on the team? (Choose Engineer)",
-                  choices: ["Manager", "Engineer", "Intern"]  
-                  },  
-          {
-          type: 'input',
-          name: 'internName',
-          message: 'Name an Intern' // Intern 
-        },
-        {
-          type: 'input',
-          name: 'internId',
-          message: 'Enter his/her ID'
-        },
-        {
-          type: 'input',
-          name: 'internEmail',
-          message: 'What is their email?'
-        },
-        {
-          type: 'input',
-          name: 'internSchool',
-          message: 'What is their school?' // Intern only
-        },
-        {
-          type: 'checkbox',
-          name: 'internRole',
-          message: "Confirm the Intern's role on the team? (Choose Intern)",
-          choices: ["Manager", "Engineer", "Intern"],  
-          },
-        ]).then(function(answers){
-          write('Team.html', answers)
-          console.log(answers)
-  });
-  
-
-} // end of createTeam
-
-
-createTeam();

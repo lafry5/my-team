@@ -37,28 +37,28 @@ const Intern = require("../lib/Intern.js");
 
                         <div class="card col-md-4">
                         <div class="col-12 jumbotron">    
-                            <h4 class="name">${Engineer.managerName}</h4>
+                            <h4 class="name">${Employee.managerName}</h4>
                             <i class="fa fa-coffee"> </i>
-                            <p class = "title">${Engineer.managerRole}</p>
+                            <p class = "title">${Employee.managerRole}</p>
                         </div>
                             <div class = "list-group">
-                            <p id="list-group-id">ID: ${Engineer.managerId} </p>
-                            <p id="list-group-email">Email: <a href="mailto:${Engineer.managerEmail}">${Engineer.managerEmail}</a></p>
-                            <p id="list-group-other">Office number: ${Engineer.managerOfficeNumber}</p>
+                            <p id="list-group-id">ID: ${Employee.managerId} </p>
+                            <p id="list-group-email">Email: <a href="mailto:${Employee.managerEmail}">${Employee.managerEmail}</a></p>
+                            <p id="list-group-other">Office number: ${Employee.managerOfficeNumber}</p>
                             </div>
                         </div> 
        
     
                         <div class="card col-md-4">
                         <div class="col-12 jumbotron">    
-                            <h4 class="name">${Engineer.engineerName1}</h4>
+                            <h4 class="name">${Employee.engineerName1}</h4>
                             <i class="fa fa-laptop"> </i>
-                            <p class = "title">${Engineer.engineerRole}</p>
+                            <p class = "title">${Employee.engineerRole}</p>
                         </div>
                             <div class = "list-group">
-                            <p id="list-group-id">ID: ${Engineer.engineerId1}</p>
-                            <p id="list-group-email">Email: <a href="mailto:${Engineer.engineerEmail1}">${Engineer.engineerEmail1}</a></p>
-                            <p id="list-group-other">GitHub: <a href="https://github.com/${Engineer.engineerUserName1}">${Engineer.engineerUserName1}</a></p>
+                            <p id="list-group-id">ID: ${Employee.engineerId1}</p>
+                            <p id="list-group-email">Email: <a href="mailto:${Employee.engineerEmail1}">${Employee.engineerEmail1}</a></p>
+                            <p id="list-group-other">GitHub: <a href="https://github.com/${Employee.engineerUserName1}">${Employee.engineerUserName1}</a></p>
                             </div>
                         </div>
 
@@ -66,42 +66,55 @@ const Intern = require("../lib/Intern.js");
 
                         <div class="card col-md-4">
                         <div class="col-12 jumbotron">    
-                            <h4 class="name">${Engineer.engineerName2}</h4>
+                            <h4 class="name">${Employee.engineerName2}</h4>
                             <i class="fa fa-laptop"> </i>
-                            <p class = "title">${Engineer.engineerRole}</p>
+                            <p class = "title">${Employee.engineerRole}</p>
                         </div>
                             <div class = "list-group">
-                            <p id="list-group-id">ID: ${Engineer.engineerId2}</p>
-                            <p id="list-group-email">Email: <a href="mailto:${Engineer.engineerEmail2}">${Engineer.engineerEmail2}</a></p>
-                            <p id="list-group-other">GitHub: <a href="https://github.com/${Engineer.engineerUserName2}">${Engineer.engineerUserName2}</a></p>
+                            <p id="list-group-id">ID: ${Employee.engineerId2}</p>
+                            <p id="list-group-email">Email: <a href="mailto:${Employee.engineerEmail2}">${Employee.engineerEmail2}</a></p>
+                            <p id="list-group-other">GitHub: <a href="https://github.com/${Employee.engineerUserName2}">${Employee.engineerUserName2}</a></p>
                             </div>
                         </div>
 
 
                         <div class="card col-md-4">
                         <div class="col-12 jumbotron">    
-                            <h4 class="name">${Engineer.engineerName3}</h4>
+                            <h4 class="name">${Employee.engineerName3}</h4>
                             <i class="fa fa-laptop"> </i>
-                            <p class = "title">${Engineer.engineerRole}</p>
+                            <p class = "title">${Employee.engineerRole}</p>
                         </div>
                             <div class = "list-group">
-                            <p id="list-group-id">ID: ${Engineer.engineerId3}</p>
-                            <p id="list-group-email">Email: <a href="mailto:${Engineer.engineerEmail3}">${Engineer.engineerEmail3}</a></p>
-                            <p id="list-group-other">GitHub: <a href="https://github.com/${Engineer.engineerUserName3}">${Engineer.engineerUserName3}</a></p>
+                            <p id="list-group-id">ID: ${Employee.engineerId3}</p>
+                            <p id="list-group-email">Email: <a href="mailto:${Employee.engineerEmail3}">${Employee.engineerEmail3}</a></p>
+                            <p id="list-group-other">GitHub: <a href="https://github.com/${Employee.engineerUserName3}">${Employee.engineerUserName3}</a></p>
+                            </div>
+                        </div> 
+
+                        <div class="card col-md-4">
+                        <div class="col-12 jumbotron">    
+                            <h4 class="name">${Employee.engineerName4}</h4>
+                            <i class="fa fa-laptop"> </i>
+                            <p class = "title">${Employee.engineerRole}</p>
+                        </div>
+                            <div class = "list-group">
+                            <p id="list-group-id">ID: ${Employee.engineerId4}</p>
+                            <p id="list-group-email">Email: <a href="mailto:${Employee.engineerEmail4}">${Employee.engineerEmail4}</a></p>
+                            <p id="list-group-other">GitHub: <a href="https://github.com/${Employee.engineerUserName4}">${Employee.engineerUserName4}</a></p>
                             </div>
                         </div> 
 
 
                         <div class="card col-md-4">
                             <div class="col-12 jumbotron">    
-                                <h4 class="name">${Intern.name}</h4>
+                                <h4 class="name">${Employee.internName}</h4>
                                 <i class="fa fa-graduation-cap"></i>
-                                <p class = "title">${Intern.role}</p>
+                                <p class = "title">${Employee.internRole}</p>
                             </div>
                                 <div class = "list-group">
-                                <p id="list-group-id">ID: ${Intern.Id}</p>
-                                <p id="list-group-email">Email: <a href="mailto:${Intern.email}">${Intern.email}</a></p>
-                                <p id="list-group-other">School: ${Intern.school}</p>
+                                <p id="list-group-id">ID: ${Employee.internId}</p>
+                                <p id="list-group-email">Email: <a href="mailto:${Employee.internEmail}">${Employee.internEmail}</a></p>
+                                <p id="list-group-other">School: ${Employee.internSchool}</p>
                                 </div>
                             </div> 
     
