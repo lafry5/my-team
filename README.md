@@ -8,7 +8,7 @@
 You can access this Github Repository at: https://github.com/lafry5/my-team
 
 ## Video Link (if applicable)
-The link to the video of this project is located at: N/A
+The link to the video of this project is located at: https://drive.google.com/file/d/1YbC8t4GRFV5p5fH_mimywxOfWn8ZGNSn/viewcd
 
 ## *Description*
 My Team Generator takes user input and creates a chart of team members and their Id's and contact info.
