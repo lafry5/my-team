@@ -6,9 +6,7 @@ const Intern = require("../lib/Intern.js");
 // const Employee = require("../lib/Employee.js");
 
  function buildChart(Employee) {
-    // console.log('Employee is' + JSON.stringify(Employee))
-    // console.log(Employee[0])
-    // console.log(Employee.Manager)
+
 
     // const employees = []
     // //prompt 
@@ -183,11 +181,6 @@ const Intern = require("../lib/Intern.js");
 //    `;
   
 // }
-
-
-
-
-
 
 // function createTeam(teamMembers) {
 
