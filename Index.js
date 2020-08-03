@@ -17,7 +17,7 @@ function write(teamMembers) {
   // console.log('in the writeFile function')
   // console.log(teamMembers)
   fs.writeFile('Team.html', generatePage(teamMembers), (err) => {  
-    console.log(teamMembers + 'teamMembers in writefunction')    
+    // console.log(teamMembers + 'teamMembers in writefunction')    
     if (err) 
               console.log(err);
         else {
